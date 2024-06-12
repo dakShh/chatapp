@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mx-auto">
+  <div class="min-h-screen flex items-center justify-center w-full">
+    <div class="bg-slate-100 shadow-lg rounded-lg px-8 py-6 max-w-full md:max-w-lg w-full">
+      <h1 class="text-2xl font-bold text-center mb-4 text-cyan-600">Enter the chatroom!</h1>
+      <form action="#" method="post">
+        <div class="mb-4">
+          <input
+            name="name"
+            class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:border-cyan-600"
+            placeholder="Pick a name"
+            value="{{name}}"
+          />
+          {% if error_name %}
+          <div class="text-red-500">{{error_name}}</div>
+          {% endif %}
+        </div>
+        <div class="flex gap-x-2">
+          <input
+            name="code"
+            class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-cyan-600"
+            value="{{code}}"
+            placeholder="Enter room code"
+          />
+          <button name="join" type="submit" class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded max-w-[140px] w-full">
+            JOIN A ROOM
+          </button>
+        </div>
+        {% if error_room %}
+        <div class="text-red-500">{{error_room}}</div>
+        {% endif %}
+        <button name="create" type="submit" class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded w-full mt-3">CREATE A ROOM !</button>
+        {% if error_no_room %}
+        <div class="text-red-500">{{error_no_room}}</div>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
